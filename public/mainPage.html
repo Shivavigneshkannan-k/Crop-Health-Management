@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEALTH MONITORING</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <div class="health-monitoring-page">
+        
+        <br><br>
+        <div class="container">
+            <div class="box left-box">
+                <form action="/save" method="post">
+                        <h1>HEALTH MONITORING</h1>
+                        
+                        <label for="temperature">TEMPERATURE SENSOR</label>
+                        <input type="text" id="temperature" name="temperature">
+                        
+                        <label for="humidity">HUMIDITY SENSOR</label>
+                        <input type="text" id="humidity" name="humidity">
+
+                        <label for="soil_moisture">SOIL MOISTURE SENSOR</label>
+                        <input type="text" id="soil_moisture" name="soil_moisture">
+                        
+                        <div class="buttons">
+                            <button id="save-Btn">Save</button>
+                        </div>
+                </form>
+                <div class="buttons">
+                    <button id="submit-button">SUBMIT</button>
+                    <button id="reset-button">RESET</button>
+                </div>
+            </div>
+        </div>
+        <div class="box right-box hidden">
+            <div id="result" >
+                <h1 class="result-label">RESULT</h1>
+                <div class="result-buttons">
+                    <button id="result-btn">HEALTHY</button>
+                </div>
+                <div id="recommendations"></div>
+            </div>
+        </div>
+    </div>
+<script>
+    const tempDiv = document.getElementById('temperature');
+    const humiDiv = document.getElementById('humidity');
+
+    document.getElementById('submit-button').addEventListener('click', function() {
+        document.querySelector(".right-box").classList.remove("hidden");
+        if(tempDiv.value==="" || humiDiv.value==""){
+            document.querySelector(".right-box").classList.add("hidden");
+        }
+
+        const temperature = parseFloat(document.getElementById('temperature').value);
+        const humidity = parseFloat(document.getElementById('humidity').value);
+        const result = document.getElementById('result');
+        const recommendations = document.getElementById('recommendations');
+
+        let isHealthy = true;
+        let recommendationsText = '';
+
+        if (temperature > 25) {
+            isHealthy = false;
+            recommendationsText += '<strong>High Temperature (> 25°C / 77°F)</strong><br>';
+            recommendationsText += 'Problem: High temperatures can cause heat stress, flower drop, and fruit sunscald.<br>';
+            recommendationsText += 'Recommendations:<br>';
+            recommendationsText += '1. Increase shading using shade cloths.<br>';
+            recommendationsText += '2. Ensure adequate watering to prevent dehydration.<br>';
+            recommendationsText += '3. Mulch the soil to retain moisture and regulate soil temperature.<br>';
+        } else if (temperature < 18) {
+            isHealthy = false;
+            recommendationsText += '<strong>Low Temperature (< 18°C / 65°F)</strong><br>';
+            recommendationsText += 'Problem: Low temperatures can slow growth, delay flowering, and increase susceptibility to diseases.<br>';
+            recommendationsText += 'Recommendations:<br>';
+            recommendationsText += '1. Use row covers or cloches to protect plants from cold.<br>';
+            recommendationsText += '2. Ensure proper spacing to improve air circulation and prevent fungal diseases.<br>';
+            recommendationsText += '3. Delay planting until the risk of frost has passed.<br>';
+        }
+
+        if (humidity > 70) {
+            isHealthy = false;
+            recommendationsText += '<strong>High Humidity (> 70%)</strong><br>';
+            recommendationsText += 'Problem: High humidity can increase the risk of fungal diseases like blight and mildew.<br>';
+            recommendationsText += 'Recommendations:<br>';
+            recommendationsText += '1. Improve air circulation by spacing plants adequately.<br>';
+            recommendationsText += '2. Avoid overhead watering; use drip irrigation instead.<br>';
+            recommendationsText += '3. Remove affected plant parts promptly to prevent disease spread.<br>';
+        } else if (humidity < 60) {
+            isHealthy = false;
+            recommendationsText += '<strong>Low Humidity (< 60%)</strong><br>';
+            recommendationsText += 'Problem: Low humidity can cause water stress, leading to wilting and poor fruit set.<br>';
+            recommendationsText += 'Recommendations:<br>';
+            recommendationsText += '1. Increase watering frequency and consider using a misting system.<br>';
+            recommendationsText += '2. Use mulch to conserve soil moisture.<br>';
+            recommendationsText += '3. Group plants closely to create a microclimate with higher humidity.<br>';
+        }
+
+        if (isHealthy) {
+            document.getElementById("result-btn").textContent="Healthy";
+            recommendations.innerHTML = 'The crop is healthy.';
+            document.getElementById('result-btn').style.backgroundColor = 'green';
+        } else {
+            document.getElementById("result-btn").innerHTML="Poor";
+            document.getElementById('result-btn').style.backgroundColor = 'red';
+
+            recommendations.innerHTML = recommendationsText;
+        }
+    });
+
+    document.getElementById('reset-button').addEventListener('click', function() {
+        document.querySelector(".right-box").classList.add("hidden");
+
+        document.getElementById('temperature').value = '';
+        document.getElementById('humidity').value = '';
+        // // document.getElementById('result').innerHTML = '';
+        document.getElementById('soil_moisture').value="";
+        // // document.getElementById('recommendations').innerHTML = '';
+    });
+</script>
+</body>
+</html>

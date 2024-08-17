@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Monitoring</title>
+    <style>
+        .center {
+            text-align: center;
+        /* Adjust font size as needed */
+        }
+        .top-center {
+            text-align: center;
+            font-size: 24px; /* Adjust font size as needed */
+            position: absolute;
+            width: 100%;
+            top: 40px; /* Adjust this value to move the text further down */
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1 class="top-center">CROPBOT</h1>
+    <div class="sign-in-page">
+        <h1>WELCOME</h1>
+        <label for="email">Email ID:</label>
+        <input type="email" id="email" name="email">
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        
+        <button id="sign-in-button">SIGN IN</button>
+        <p id="sign-in-error" class="error hidden">Invalid email or password</p>
+        <p>Don't have an account? <a href="#" id="go-to-sign-up">Sign Up</a></p>
+    </div>
+
+    <div class="sign-up-page hidden">
+        <h1>SIGN UP</h1>
+        <label for="new-email">Email ID:</label>
+        <input type="email" id="new-email" name="new-email">
+        
+        <label for="new-password">Password:</label>
+        <input type="password" id="new-password" name="new-password">
+        
+        <label for="confirm-password">Confirm Password:</label>
+        <input type="password" id="confirm-password" name="confirm-password">
+        
+        <button id="sign-up-button">SIGN UP</button>
+        <p id="sign-up-error" class="error hidden">Passwords do not match</p>
+        <p>Already have an account? <a href="#" id="go-to-sign-in">Sign In</a></p>
+    </div>
+
+    <div class="health-monitoring-page hidden">
+        
+        <br><br>
+        <div class="container">
+            <div class="box left-box">
+                <h1>HEALTH MONITORING</h1>
+                
+                <label for="temperature">TEMPERATURE SENSOR</label>
+                <input type="text" id="temperature" name="temperature">
+                
+                <label for="humidity">HUMIDITY SENSOR</label>
+                <input type="text" id="humidity" name="humidity">
+
+                <label for="soil moisture">SOIL MOISTURE SENSOR</label>
+                <input type="text" id="soil moisture" name="soil moisture">
+                
+                <div class="buttons">
+                    <button id="submit-button">SUBMIT</button>
+                    <button id="reset-button">RESET</button>
+                </div>
+            </div>
+
+            <div class="box right-box">
+                <div id="result">
+                    <span class="result-label">RESULT</span>
+                    <div class="result-buttons">
+                        <button id="poor-button">POOR</button>
+                        <button id="healthy-button">HEALTHY</button>
+                    </div>
+                    <div id="recommendations"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

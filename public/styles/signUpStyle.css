@@ -1,0 +1,147 @@
+/* Style for the body */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f3f9f4;
+    margin: 0;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Style for the sign-up form */
+form.sign-up-page {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 0.75rem; /* 12px */
+    box-shadow: 0 0.625rem 1.25rem rgba(0, 0, 0, 0.1); /* 10px 20px */
+    width: 100%;
+    max-width: 22rem; /* 352px */
+    box-sizing: border-box;
+}
+
+/* Style for the form heading */
+form.sign-up-page h1 {
+    text-align: center;
+    color: #2d572c;
+    margin-bottom: 1.5rem; /* 24px */
+    font-size: 1.75rem;
+    font-weight: 600;
+}
+
+/* Style for labels */
+form.sign-up-page label {
+    color: #3e7e3e;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 0.5rem; /* 8px */
+    font-size: 1rem;
+}
+
+/* Style for input fields */
+form.sign-up-page input[type="email"],
+form.sign-up-page input[type="password"] {
+    width: 100%;
+    padding: 0.75rem; /* 12px */
+    margin-bottom: 1rem; /* 16px */
+    border: 0.0625rem solid #2d572c; /* 1px */
+    border-radius: 0.375rem; /* 6px */
+    box-sizing: border-box;
+    font-size: 1rem;
+    background-color: #f5faf6;
+}
+
+form.sign-up-page input[type="email"]:focus,
+form.sign-up-page input[type="password"]:focus {
+    border-color: #3e7e3e;
+    outline: none;
+    background-color: #ffffff;
+}
+
+/* Style for the sign-up button */
+form.sign-up-page button {
+    width: 100%;
+    padding: 0.75rem; /* 12px */
+    background-color: #2d572c;
+    color: white;
+    border: none;
+    border-radius: 0.375rem; /* 6px */
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form.sign-up-page button:hover {
+    background-color: #3e7e3e;
+}
+
+/* Style for error message */
+form.sign-up-page .error {
+    color: #d93025;
+    background-color: #fce8e6;
+    border: 0.0625rem solid #fbc8c4; /* 1px */
+    padding: 0.75rem; /* 12px */
+    border-radius: 0.375rem; /* 6px */
+    margin-bottom: 1rem; /* 16px */
+    font-size: 0.875rem; /* 14px */
+}
+
+/* Style for the hidden class */
+.hidden {
+    display: none;
+}
+
+/* Style for the sign-in link */
+form.sign-up-page p {
+    text-align: center;
+    margin-top: 1rem; /* 16px */
+    font-size: 0.875rem; /* 14px */
+}
+
+form.sign-up-page a {
+    color: #2d572c;
+    text-decoration: none;
+}
+
+form.sign-up-page a:hover {
+    text-decoration: underline;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 48rem) { /* 768px */
+    form.sign-up-page {
+        padding: 1.5rem;
+        max-width: 90%;
+    }
+
+    form.sign-up-page h1 {
+        font-size: 1.5rem;
+    }
+
+    form.sign-up-page input[type="email"],
+    form.sign-up-page input[type="password"],
+    form.sign-up-page button {
+        font-size: 0.875rem; /* 14px */
+        padding: 0.625rem; /* 10px */
+    }
+}
+
+@media (max-width: 30rem) { /* 480px */
+    form.sign-up-page {
+        padding: 1rem;
+        max-width: 100%;
+    }
+
+    form.sign-up-page h1 {
+        font-size: 1.25rem; /* 20px */
+    }
+
+    form.sign-up-page input[type="email"],
+    form.sign-up-page input[type="password"],
+    form.sign-up-page button {
+        font-size: 0.75rem; /* 12px */
+        padding: 0.5rem; /* 8px */
+    }
+}

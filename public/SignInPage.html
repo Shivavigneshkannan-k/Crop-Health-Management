@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGN IN</title>
+    <link rel="stylesheet" href="styles/signInStyle.css">
+</head>
+<body>
+    <h1>Welcome</h1>
+    <form action="/signIn" method="post">
+        <label for="email">Email ID:</label>
+        <input type="email" class="email-field" name="email" placeholder="email id">
+        
+        <label for="password">Password:</label>
+        <input type="password" class="password--field" name="password" placeholder="password">
+        
+        <input class="sign-in-btn" type="submit" value="Sign In"></input>
+        <p id="sign-in-error" class="error hidden">Invalid email or password</p>
+        <p>Don't have an account? <a href="/signUpPage" id="go-to-sign-up">Sign Up</a></p>
+    </form>
+</body>
+</html>

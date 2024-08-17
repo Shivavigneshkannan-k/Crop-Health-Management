@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGN UP</title>
+    <link rel="stylesheet" href="styles\signUpStyle.css"> 
+</head>
+<body>
+    <form method="post" class="sign-up-page" action="/signUp">
+        <h1>SIGN UP</h1>
+        <label for="newEmail">Email ID:</label>
+        <input type="email" class="newEmail" name="newEmail">
+        
+        <label for="newPassword">Password:</label>
+        <input type="password" class="newPassword" name="newPassword">
+        
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" class="confirmPassword" name="confirmPassword">
+        
+        <button type="submit" id="sign-up-button">SIGN UP</button>
+        
+        <p id="sign-up-error" class="error hidden">Passwords do not match</p>
+        <p>Already have an account? <a href="/signInPage" class="go-to-sign-in">Sign In</a></p>
+    </form>
+    <script>
+        document.querySelector('.sign-up-page').addEventListener('submit', function(event) {
+            const password = document.querySelector('.newPassword').value;
+            const confirmPassword = document.querySelector('.confirmPassword').value;
+    
+            if (password !== confirmPassword) {
+                document.getElementById('sign-up-error').classList.remove('hidden');
+                event.preventDefault();
+            } else {
+                document.getElementById('sign-up-error').classList.add('hidden');
+            }
+        });
+    </script>
+    
+</body>
+</html>
